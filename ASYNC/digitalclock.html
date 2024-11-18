@@ -1,0 +1,76 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            text-align: center;
+            font-size: 90px;
+            font-weight: 900;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock"></div>
+
+    <script>
+        function digitalclock() {
+            var clock = document.querySelector(".clock");
+            var getTime = new Date();
+
+            var hrs = getTime.getHours();
+            var mins = getTime.getMinutes();
+            var secs = getTime.getSeconds();
+
+
+            
+//first example for zero add
+
+            if (mins < 10) {
+                mins = "0" + mins;
+            }
+
+            if (secs < 10) {
+                secs = "0" + secs;
+            }
+
+
+            if (hrs >12) {
+                hrs = hrs - "12";
+            }
+
+
+
+
+
+//fsecond example for zero add
+
+
+// hrs =(hrs <10? '0'  : '' + hrs);
+// mins =(mins <10? '0'  : '' + mins);
+// secs =(secs <10? '0'  : '' + secs);
+
+
+
+  
+            clock.textContent = hrs + ":" + mins + ":" + secs;
+        }
+
+  
+        digitalclock();
+        setInterval(digitalclock, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

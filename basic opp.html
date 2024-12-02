@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>OOP in javascript</h1>
+
+    <script>
+        console.log("Basic OPP")
+//class 
+        //single level inheritance
+        //class
+        //single level inheritance
+        //parent class== basic class
+
+        class vehicals {
+            constructor(regNo,name,brand,engine,color,price){
+                this.regNo = regNo 
+                this.name = name
+                this.color = color
+                this.brand = brand
+                this.engine = engine
+           
+                this.price = price
+                                                                                                                                                                                
+            }
+            
+
+start(){
+
+    console.log(`${this.brand} ${this.name} of ${this.color} color , make model year is ${this.modal}has engine capacity of ${this.engine}with price of ${this.price}.registration number is ${this.regNo}`);
+}
+        
+        }
+//obj
+
+   let Carolla = new vehicals("AAZ-657","carolla","Toyoto","1500cc","2023","white","430000");
+   let civic = new vehicals("AAZ-657","carolla","Toyoto","1500cc","2023","white","430000");
+   let Mehran = new vehicals("AAZ-657","carolla","Toyoto","1500cc","2023","white","430000");
+
+Carolla.start();
+civic.start();
+Mehran.start();
+
+
+//inheritance 
+//class child ==derivd class
+
+class Motorcycle extends vehicals{
+    constructor(regNo,name,brand,engine,model,color,price,fuelTank,seatingCapacity)
+    {
+        super(regNo,name,brand,engine,model,color,price);
+        this.fuelTank = fuelTank;
+        this.seatingCapacity = seatingCapacity;
+
+    }
+
+    kick(){
+        console.log(`${this.brand} ${this.name} of ${this.color} color , make model year is ${this.modal}this bike has fuel capacity of ${this.engine}with price of ${this.price}.registration number is ${this.regNo}.this bike has fuel capacity of ${this.fuelTank}litre with seatingCapacity of ${this.seatingCapacity}.`);
+    }
+}
+
+
+
+//obj
+
+let CG125 = new Motorcycle("KKZ-342","CG125","Honda","125cc",2023,"Red",430000,10,2);
+
+ 
+
+CG125.kick()
+
+        
+    </script>
+</body>
+</html>

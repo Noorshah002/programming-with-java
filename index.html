@@ -1,146 +1,31 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <style>
- 
-      input.valid {
-        border: 2px solid green;
-      }
-      input.invalid {
-        border: 2px solid red;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-8 mx-auto">
-          <h1 class="text-center display-">Signup Form</h1>
 
-          <input type="text" name="username" id="username" class="form-control" placeholder="Enter username"/><br />
-          <label for="username" class="mb-3">Enter username from 5-10 alphanumeric characters</label><br />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Product</title>
+</head>
 
-          <input type="text" name="email" id="email" class="form-control" placeholder="Enter email"/><br /> 
-          <label for="email" class="mb-3" >Enter email like xyz@abc.com</label><br />
+<body>
+    <nav>
+       
+        <a href="index.html" class="logo">Logo</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span id="quantity">(0)</span></a></li>
+        </ul>
+    </nav>
+    <h1 class="main-heading">Top Selling Products</h1>
+    <div class="container" id="data">
 
-          <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter phone number"/><br />
-          <label for="phone" class="mb-3" >please enter you number in following format:+9231757545454 or 032165878787</label><br />
-          
-          <input type="text" name="password" id="password" class="form-control" placeholder="Enter password"/><br />
-          <label for="password" class="mb-3" >A password must contains a lowercase letter, an uppercase letter, a digit and an special charater</label><br />
-          <button class="btn btn-info d-grid mx-auto my-2" onclick="Register()">Register</button>
-        </div>
-      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-      const regex = {
-        username: /^[a-z]{6,10}$/,
-        email: /^([\w])+@([\w])+\.([a-z]{2,6})(\.[a-z]{2,4})*$/,
-        password:
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!#@%\?\+-])[\w+!#@%\?\+-]{8,16}$/,
-        phone: /^[\+]?[\d]{11,15}$/,
-      };
+    <script src="app.js"></script>
+</body>
 
-
-let user= JSON.parse(localStorage.getItem("user")) || []
-
-      function validate(elem, pattern) {
-        // elem.value.match(pattern)//asdjfhdfj = ["asdjfhdfj"]/null
-        if (pattern.test(elem.value)) {
-        console.log('correct validation')
-          elem.classList.add("valid");
-          elem.classList.remove("invalid");
-        } else {
-          console.log('wrong validation')
-          elem.classList.add("invalid");
-          elem.classList.remove("valid");
-        }
-      }
-
-      let inputs = document.querySelectorAll("input");
-      console.log(inputs);
-
-      inputs.forEach((input) => {
-        input.addEventListener("keyup", (e) => {
-          //  console.log(e.target.attributes.id.value);
-          //  console.log(e.target.value);
-          //  console.log(regex[e.target.attributes.id.value]);
-          validate(e.target, regex[e.target.attributes.id.value]);
-        });
-      });
-
-
-//  var valid=false;
- let count;
-let Register = () => {
-  count=0
-  inputs.forEach(element=>{
-
- let classes=element.classList.value;
- 
- if(classes.includes("valid") && !classes.includes("invalid")){
-  // valid=true;
-  count++;
- }
-//  else{
-//   // valid=false;
-//   count--;
-//  }
-//  console.log(classes.includes("valid") && !classes.includes("invalid"));
-//  console.log(valid);
-  })
-  console.log(count)
-if(count==4){
-  let person={
-  username:username.value,
-  email:email.value,
-  password:password.value,
-  phone:phone.value
-}
-user.push(person)
-localStorage.setItem("user",JSON.stringify(user))
-            alert("Success")
-            // Swal.fire({
-            //   icon: "success",
-            //   title: "Thanks",
-            //   text: "Registeration Successful",
-            //   footer: '<a href="">Login now!</a>'
-            // });
-          }
-          else{
-            alert("Sorry invalid")
-            //   Swal.fire({
-          //     icon: "error",
-          //     title: "Oops...",
-          //     text: "Please enter valid values!" 
-          // })
-          }
-}
-
-
-
-    </script>
-  </body>
 </html>
